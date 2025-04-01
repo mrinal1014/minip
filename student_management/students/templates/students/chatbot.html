@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Chatbot</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/chatbot.css' %}">
+</head>
+<body>
+
+    <!-- Project Details Section -->
+    <div class="project-info">
+        <h1 class="fade-in">📚 Student Chatbot</h1>
+        <p class="slide-up"><strong>About the Chatbot:</strong> This chatbot helps you find student details based on their registration number. Simply enter the number, and the bot will fetch relevant student details.</p>
+        <p class="slide-up"><strong>Developed By:</strong> Students of <span class="highlight">Adamas University, School of Engineering & Technology (SOET), 2nd Year, B.Tech, Section E.</span></p>
+        
+        <h2 class="fade-in">Project Members:</h2>
+        <ul class="member-list">
+            <li>🔹 Mrinal Sahoo</li>
+            <li>🔹Subhangkar Barui</li>
+            <li>🔹Saikat Pal</li>
+            <li>🔹Soma Chatterjee</li>
+            <li>🔹Arindam Jana</li>
+        </ul>
+    </div>
+
+    <!-- Floating Chatbot -->
+    <div class="chat-container">
+        <div class="tiger-icon" id="tigerChat">🐅</div>
+        <div class="chat-box" id="chatBox">
+            <div class="chat-header">
+                <h2>Chatbot</h2>
+                <span id="closeChat">&times;</span>
+            </div>
+            <div class="chat-body" id="chatBody">
+                <p>👋 Hello! Enter a registration number to get student details.</p>
+            </div>
+            <div class="chat-footer">
+                <input type="text" id="chatInput" placeholder="Enter Registration Number...">
+                <button id="sendMessage">Search</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const tigerChat = document.getElementById("tigerChat");
+    const chatBox = document.getElementById("chatBox");
+    const closeChat = document.getElementById("closeChat");
+    const chatInput = document.getElementById("chatInput");
+    const sendMessage = document.getElementById("sendMessage");
+    const chatBody = document.getElementById("chatBody");
+
+    // Toggle chatbot visibility
+    tigerChat.addEventListener("click", () => {
+        chatBox.style.display = "flex";
+    });
+
+    closeChat.addEventListener("click", () => {
+        chatBox.style.display = "none";
+    });
+
+    sendMessage.addEventListener("click", () => {
+        const query = chatInput.value.trim();
+        if (!query) return;
+
+        // Display user message
+        chatBody.innerHTML += `<p><strong>You:</strong> ${query}</p>`;
+        chatInput.value = "";
+
+        // Send request to Django backend
+        fetch(`/students/search_api/?q=${query}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("Response received:", data);
+
+                if (data.length > 0) {
+                    let student = data[0];
+                    chatBody.innerHTML += `<p><strong>Bot:</strong> ${student.name}, ${student.program}, ${student.department}</p>`;
+                } else {
+                    chatBody.innerHTML += `<p><strong>Bot:</strong> No student found.</p>`;
+                }
+
+                chatBody.scrollTop = chatBody.scrollHeight;
+            })
+            .catch(error => {
+                console.error("Fetch error:", error);
+                chatBody.innerHTML += `<p><strong>Bot:</strong> Error fetching response.</p>`;
+            });
+    });
+});
+    </script>
+
+</body>
+</html>

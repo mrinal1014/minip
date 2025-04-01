@@ -1,0 +1,120 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background:  linear-gradient(135deg, #1a1a2e, #16213e);
+    background-size: cover;
+    color: white;
+    text-align: center;
+}
+
+.home-container {
+    padding: 50px;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: Castellar;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-family: Castellar;
+    color: aquamarine;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-family: Castellar;
+}
+
+.mentor-section, .members-section {
+    margin: 40px 0;
+}
+
+.photo-frame {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.photo-frame:hover {
+    transform: scale(1.5);
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-caption {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.members-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.member-card {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 200px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.member-card:hover {
+    transform: translateY(-5px);
+}
+
+.member-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 10px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.member-details {
+    font-size: 1rem;
+    margin: 5px 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.chatbot-link {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 20px;
+    background: #ff9900;
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out;
+}
+
+.chatbot-link:hover {
+    background: #ff6600;
+}
+#logo {
+    position:flex;
+    height: 150px; /* Adjust size as needed */
+    width: auto;
+    
+}

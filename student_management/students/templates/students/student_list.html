@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student | Adamas SoET</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home </a></li>
+            
+        </ul>
+    </nav>
+
+
+    <!-- About SoET Section -->
+    <div class="about">
+        <h2>About School of Engineering & Technology</h2>
+        <p>Adamas University’s SoET is a leading institution in engineering and technology, offering cutting-edge programs and strong industry collaboration.</p>
+
+        <h3>Programs Offered:</h3>
+        <ul>
+            <li><strong>B.Tech:</strong> CSE, Electrical, ECE, Mechanical, Civil, Biomedical</li>
+            <li><strong>M.Tech:</strong> VLSI, IoT, Embedded Systems</li>
+            <li><strong>BCA & MCA:</strong> Specializations in AI, Cloud Computing, Cybersecurity</li>
+        </ul>
+
+        <h3>Why Choose SoET?</h3>
+        <ul>
+            <li>Industry-collaborated courses with TCS, Bosch & Samatrix</li>
+            <li>State-of-the-art labs & research facilities</li>
+            <li>Global exposure with international partner universities</li>
+            <li>Placement records up to 16.5 LPA in top companies</li>
+        </ul>
+
+        <h3>Contact & More Info:</h3>
+        <p>Visit our official page: <a href="https://admissions.adamasuniversity.ac.in/engineering/" target="_blank">Adamas SoET</a></p>
+    </div>
+</body>
+</html>
